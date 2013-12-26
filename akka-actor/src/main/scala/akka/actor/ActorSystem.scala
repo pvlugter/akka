@@ -14,6 +14,7 @@ import akka.dispatch.sysmsg.{ SystemMessageList, EarliestFirstSystemMessageList,
 import akka.japi.Util.immutableSeq
 import akka.actor.dungeon.ChildrenContainer
 import akka.util._
+import akka.trace.Tracer
 import scala.annotation.tailrec
 import scala.collection.immutable
 import scala.concurrent.duration.{ FiniteDuration, Duration }
@@ -204,6 +205,8 @@ object ActorSystem {
     final val JvmExitOnFatalError: Boolean = getBoolean("akka.jvm-exit-on-fatal-error")
 
     final val DefaultVirtualNodesFactor: Int = getInt("akka.actor.deployment.default.virtual-nodes-factor")
+
+    final val Tracers: immutable.Seq[String] = immutableSeq(getStringList("akka.tracers"))
 
     if (ConfigVersion != Version)
       throw new akka.ConfigurationException("Akka JAR version [" + Version + "] does not match the provided config version [" + ConfigVersion + "]")
@@ -484,6 +487,16 @@ abstract class ExtendedActorSystem extends ActorSystem {
   def dynamicAccess: DynamicAccess
 
   /**
+   * Returns whether or not a tracer is attached.
+   */
+  def hasTracer: Boolean
+
+  /**
+   * Access to the trace SPI.
+   */
+  def tracer: Tracer
+
+  /**
    * For debugging: traverse actor hierarchy and make string representation.
    * Careful, this may OOM on large actor systems, and it is only meant for
    * helping debugging in case something already went terminally wrong.
@@ -566,6 +579,9 @@ private[akka] class ActorSystemImpl(val name: String, applicationConfig: Config,
 
   import settings._
 
+  final val hasTracer: Boolean = Tracer.enabled(settings.Tracers, settings.config)
+  final val tracer: Tracer = Tracer(settings.Tracers, settings.config, dynamicAccess)
+
   // this provides basic logging (to stdout) until .start() is called below
   val eventStream = new EventStream(this, DebugEventStream)
   eventStream.startStdoutLogger(settings)
@@ -622,6 +638,10 @@ private[akka] class ActorSystemImpl(val name: String, applicationConfig: Config,
     eventStream.startUnsubscriber()
     loadExtensions()
     if (LogConfigOnStart) logConfiguration()
+    if (hasTracer) {
+      tracer.systemStarted(this)
+      registerOnTermination { tracer.systemShutdown(this) }
+    }
     this
   } catch {
     case NonFatal(e) ⇒
