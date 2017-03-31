@@ -1868,6 +1868,17 @@ button::-moz-focus-inner {
   margin: 0;
   list-style: none;
   text-transform: capitalize; }
+  .sideBar.navigation a {
+    display: block; }
+  .sideBar.navigation .nav-home a {
+    color: #0B5567;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e7e7e7;
+    margin-bottom: 6px; }
+    .sideBar.navigation .nav-home a:hover {
+      color: #15A9CE; }
+    .sideBar.navigation .nav-home a.active {
+      color: #15A9CE; }
   .sideBar.navigation li a {
     color: #0B5567;
     border-bottom: none;
@@ -1877,17 +1888,27 @@ button::-moz-focus-inner {
     .sideBar.navigation li a:hover {
       color: #15A9CE;
       border-bottom: none; }
+    .sideBar.navigation li a.active {
+      color: #15A9CE; }
   .sideBar.navigation ul li ul {
     border-left: 2px solid #e7e7e7;
     padding-left: 10px;
     margin: 10px 0 10px 10px; }
-    .sideBar .navigation ul li ul li a {
+    .sideBar.navigation ul li ul li ul li a {
       font-weight: normal;
-      border-bottom: 1px solid #0B5567; }
-      .sideBar .navigation ul li ul li a:hover {
-        border-bottom: 1px solid #15A9CE; }
-    .sideBar .navigation ul li ul li ul {
+      /* border-bottom: 1px solid #0B5567; */ }
+      .sideBar.navigation ul li ul li ul li a:hover {
+        /* border-bottom: 1px solid #15A9CE; */ }
+    .sideBar.navigation ul li ul li ul {
       margin: 0 0 10px 10px; }
+/* adjust the anchor targets for the floating header */
+:target:before {
+  content: "";
+  display: block;
+  height: 120px; /* header height*/
+  margin: -120px 0 0; /* negative header height */}
+a.anchor {
+  visibility: hidden;}
 .documentationContent h1 {
   font-size: 30px;
   font-size: 1.66667rem;

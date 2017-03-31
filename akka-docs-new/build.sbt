@@ -15,3 +15,8 @@ disablePlugins(MimaPlugin)
 enablePlugins(ParadoxPlugin)
 // use local Akka theme
 paradoxTheme := None
+// sidebar navigation settings
+paradoxNavigationDepth := 1
+paradoxNavigationExpandActive := true
+paradoxNavigationExpandDepth := 1
+paradoxNavigationIncludeHeaders := true

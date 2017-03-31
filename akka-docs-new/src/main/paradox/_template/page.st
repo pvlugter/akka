@@ -18,6 +18,9 @@ $pageHeader()$
     <div class="docuRow">
         <div class="twocol sideBar desktop-only navigation">
             <!-- TODO needs more features here -->
+            <div class="nav-home">
+                <a href="$page.home.href$" $if(page.home.active)$class="active"$endif$>$page.home.title$</a>
+            </div>
             $page.navigation$
             <!--           <ul class="sideBarTopLevel">
                            <li><a class="sideBarActive" href="">Creating Actors</a>

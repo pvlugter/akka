@@ -1,10 +1,5 @@
 # Contents
 
-@@toc { depth=1 }
+* @ref[Java Documentation](java.md)
+* @ref[Scala Documentation](scala.md)
 
-@@@ index
-
-* [java](java.md)
-* [scala](scala.md)
-
-@@@

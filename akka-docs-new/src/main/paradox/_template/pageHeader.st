@@ -47,8 +47,8 @@
                 <span class="searchVersion">Version 2.4.12</span>
             </div>
             <div class="headerButtons">
-                <a href="TODO: documentationContents.html" class="bright">Java contents</a>
-                <a href="TODO: documentationContents.html" class="bright">Scala contents</a>
+                <a href="$page.base$java.html" class="bright">Java Documentation</a>
+                <a href="$page.base$scala.html" class="bright">Scala Documentation</a>
             </div>
         </div>
     </div>
