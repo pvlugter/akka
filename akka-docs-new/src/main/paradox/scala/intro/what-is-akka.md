@@ -32,7 +32,7 @@ Actors give you:
  * Asynchronous, non-blocking and highly performant message-driven programming model.
  * Very lightweight event-driven processes (several million actors per GB of heap memory).
 
-See the chapter for @ref:[Scala](../scala/actors.md) or @ref:[Java](../java/actors.md).
+See the chapter for @ref:[Actors](../actors.md).
 
 ### Fault Tolerance
 
@@ -40,15 +40,14 @@ See the chapter for @ref:[Scala](../scala/actors.md) or @ref:[Java](../java/acto
  * Actor systems can span over multiple JVMs to provide truly fault-tolerant systems.
  * Excellent for writing highly fault-tolerant systems that self-heal and never stop.
 
-See @ref:[Fault Tolerance (Scala)](../scala/fault-tolerance.md) and @ref:[Fault Tolerance (Java)](../java/fault-tolerance.md).
+See @ref:[Fault Tolerance](../fault-tolerance.md).
 
 ### Location Transparency
 
 Everything in Akka is designed to work in a distributed environment: all
 interactions of actors use pure message passing and everything is asynchronous.
 
-For an overview of the cluster support see the @ref:[Java](../java/cluster-usage.md)
-and @ref:[Scala](../scala/cluster-usage.md) documentation chapters.
+For an overview of the cluster support see the @ref:[Cluster Usage](../cluster-usage.md) documentation chapters.
 
 ### Persistence
 
@@ -56,11 +55,11 @@ State changes experienced by an actor can optionally be persisted and replayed w
 restarted. This allows actors to recover their state, even after JVM crashes or when being migrated
 to another node.
 
-You can find more details in the respective chapter for @ref:[Java](../java/persistence.md) or @ref:[Scala](../scala/persistence.md).
+You can find more details in the respective chapter for @ref:[Persistence](../persistence.md).
 
 ## Scala and Java APIs
 
-Akka has both a @ref:[Scala Documentation](../scala.md) and a @ref:[Java Documentation](../java.md).
+Akka has both a @ref:[Scala Documentation](../../scala.md) and a @ref:[Java Documentation](../../java.md).
 
 ## Akka can be used in different ways
 

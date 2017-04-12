@@ -7,7 +7,7 @@
 
 * [stream-introduction](stream-introduction.md)
 * [stream-quickstart](stream-quickstart.md)
-* [../../general/stream/stream-design](../../general/stream/stream-design.md)
+* [../general/stream/stream-design](../general/stream/stream-design.md)
 * [stream-flows-and-basics](stream-flows-and-basics.md)
 * [stream-graphs](stream-graphs.md)
 * [stream-composition](stream-composition.md)
@@ -21,6 +21,6 @@
 * [stream-testkit](stream-testkit.md)
 * [stages-overview](stages-overview.md)
 * [stream-cookbook](stream-cookbook.md)
-* [../../general/stream/stream-configuration](../../general/stream/stream-configuration.md)
+* [../general/stream/stream-configuration](../general/stream/stream-configuration.md)
 
 @@@

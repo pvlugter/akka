@@ -7,7 +7,7 @@
 * [what-is-akka](what-is-akka.md)
 * [why-akka](why-akka.md)
 * [getting-started](getting-started.md)
-* [../java/hello-world](../java/hello-world.md)
+* [../hello-world](../hello-world.md)
 * [deployment-scenarios](deployment-scenarios.md)
 * [use-cases](use-cases.md)
 

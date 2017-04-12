@@ -34,7 +34,7 @@ These are the current complete modules marked as **may change**:
 @@@ index
 
 * [../dev/multi-node-testing](../dev/multi-node-testing.md)
-* [../scala/typed](../scala/typed.md)
+* [../../scala/typed](../../scala/typed.md)
 
 @@@
 

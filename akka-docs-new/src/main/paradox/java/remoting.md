@@ -10,7 +10,7 @@ peer-to-peer fashion and it has limitations for client-server setups. In
 particular Akka Remoting does not work transparently with Network Address Translation,
 Load Balancers, or in Docker containers. For symmetric communication in these situations
 network and/or Akka configuration will have to be changed as described in
-@ref:[Peer-to-Peer vs. Client-Server](../general/remoting.md#symmetric-communication).
+@ref:[Peer-to-Peer vs. Client-Server](general/remoting.md#symmetric-communication).
 
 @@@
 
@@ -96,7 +96,7 @@ the `ActorSelection`, which returns a `CompletionStage` of the matching
 
 @@@ note
 
-For more details on how actor addresses and paths are formed and used, please refer to @ref:[Actor References, Paths and Addresses](../general/addressing.md).
+For more details on how actor addresses and paths are formed and used, please refer to @ref:[Actor References, Paths and Addresses](general/addressing.md).
 
 @@@
 
@@ -491,7 +491,7 @@ Creating and working with keystores and certificates is well documented in the
 [Generating X.509 Certificates](http://typesafehub.github.io/ssl-config/CertificateGeneration.html#using-keytool)
 section of Lightbend's SSL-Config library. 
 
-Since an Akka remoting is inherently @ref:[peer-to-peer](../general/remoting.md#symmetric-communication) both the key-store as well as trust-store 
+Since an Akka remoting is inherently @ref:[peer-to-peer](general/remoting.md#symmetric-communication) both the key-store as well as trust-store 
 need to be configured on each remoting node participating in the cluster.
 
 The official [Java Secure Socket Extension documentation](http://docs.oracle.com/javase/7/jdocs/technotes/guides/security/jsse/JSSERefGuide.html)
@@ -513,7 +513,7 @@ See also a description of the settings in the @ref:[Remote Configuration](../sca
 
 @@@ note
 
-When using SHA1PRNG on Linux it's recommended specify `-Djava.security.egd=file:/dev/urandom` as argument
+When using SHA1PRNG on Linux it's recommended specify `-Djava.security.egd=fildev/urandom` as argument
 to the JVM to prevent blocking. It is NOT as secure because it reuses the seed.
 
 @@@
@@ -588,7 +588,7 @@ marking them `PossiblyHarmful` so that a client cannot forge them.
 ## Remote Configuration
 
 There are lots of configuration properties that are related to remoting in Akka. We refer to the 
-@ref:[reference configuration](../general/configuration.md#config-akka-remote) for more information.
+@ref:[reference configuration](general/configuration.md#config-akka-remote) for more information.
 
 @@@ note
 

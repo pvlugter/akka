@@ -119,10 +119,9 @@ The non-exhaustive list of adequate solutions to the “blocking problem”
 includes the following suggestions:
 
 >
- * Do the blocking call within an actor (or a set of actors managed by a router
-[@ref:[Java](../java/routing.md), @ref:[Scala](../scala/routing.md)]), making sure to
-configure a thread pool which is either dedicated for this purpose or
-sufficiently sized.
+ * Do the blocking call within an actor (or a set of actors managed by a
+@ref:[router](../routing.md)), making sure to configure a thread pool which is
+either dedicated for this purpose or sufficiently sized.
  * Do the blocking call within a `Future`, ensuring an upper bound on
 the number of such calls at any point in time (submitting an unbounded
 number of tasks of this nature will exhaust your memory or thread limits).
@@ -145,8 +144,7 @@ on which DBMS is deployed on what hardware.
 
 Configuring thread pools is a task best delegated to Akka, simply configure
 in the `application.conf` and instantiate through an `ActorSystem`
-[@ref:[Java](../java/dispatchers.md#dispatcher-lookup-java), @ref:[Scala
-](../scala/dispatchers.md#dispatcher-lookup-scala)]
+[see @ref:[Looking up a Dispatcher](../dispatchers.md#looking-up-a-dispatcher)].
 
 @@@
 

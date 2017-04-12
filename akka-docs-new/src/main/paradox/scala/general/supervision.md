@@ -196,7 +196,7 @@ Provided as a built-in pattern the `akka.pattern.BackoffSupervisor` implements t
 
 This pattern is useful when the started actor fails <a id="^1" href="#1">[1]</a> because some external resource is not available,
 and we need to give it some time to start-up again. One of the prime examples when this is useful is
-when a @ref:[PersistentActor](../scala/persistence.md) fails (by stopping) with a persistence failure - which indicates that
+when a @ref:[PersistentActor](../../scala/persistence.md) fails (by stopping) with a persistence failure - which indicates that
 the database may be down or overloaded, in such situations it makes most sense to give it a little bit of time
 to recover before the peristent actor is started.
 
@@ -205,13 +205,13 @@ to recover before the peristent actor is started.
 The following Scala snippet shows how to create a backoff supervisor which will start the given echo actor after it has stopped
 because of a failure, in increasing intervals of 3, 6, 12, 24 and finally 30 seconds:
 
-@@snip [BackoffSupervisorDocSpec.scala](../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-stop }
+@@snip [BackoffSupervisorDocSpec.scala](../../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-stop }
 
 The above is equivalent to this Java code:
 
-@@snip [BackoffSupervisorDocTest.java](../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-imports }
+@@snip [BackoffSupervisorDocTest.java](../../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-imports }
 
-@@snip [BackoffSupervisorDocTest.java](../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-stop }
+@@snip [BackoffSupervisorDocTest.java](../../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-stop }
 
 Using a `randomFactor` to add a little bit of additional variance to the backoff intervals
 is highly recommended, in order to avoid multiple actors re-start at the exact same point in time,
@@ -226,23 +226,23 @@ crashes and the supervision strategy decides that it should restart.
 The following Scala snippet shows how to create a backoff supervisor which will start the given echo actor after it has crashed
 because of some exception, in increasing intervals of 3, 6, 12, 24 and finally 30 seconds:
 
-@@snip [BackoffSupervisorDocSpec.scala](../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-fail }
+@@snip [BackoffSupervisorDocSpec.scala](../../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-fail }
 
 The above is equivalent to this Java code:
 
-@@snip [BackoffSupervisorDocTest.java](../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-imports }
+@@snip [BackoffSupervisorDocTest.java](../../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-imports }
 
-@@snip [BackoffSupervisorDocTest.java](../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-fail }
+@@snip [BackoffSupervisorDocTest.java](../../java/code/jdocs/pattern/BackoffSupervisorDocTest.java) { #backoff-fail }
 
 The `akka.pattern.BackoffOptions` can be used to customize the behavior of the back-off supervisor actor, below are some examples:
 
-@@snip [BackoffSupervisorDocSpec.scala](../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-custom-stop }
+@@snip [BackoffSupervisorDocSpec.scala](../../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-custom-stop }
 
 The above code sets up a back-off supervisor that requires the child actor to send a `akka.pattern.BackoffSupervisor.Reset` message
 to its parent when a message is successfully processed, resetting the back-off. It also uses a default stopping strategy, any exception
 will cause the child to stop.
 
-@@snip [BackoffSupervisorDocSpec.scala](../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-custom-fail }
+@@snip [BackoffSupervisorDocSpec.scala](../../scala/code/docs/pattern/BackoffSupervisorDocSpec.scala) { #backoff-custom-fail }
 
 The above code sets up a back-off supervisor that restarts the child after back-off if MyException is thrown, any other exception will be
 escalated. The back-off is automatically reset if the child does not throw any errors within 10 seconds.
@@ -280,4 +280,4 @@ Please note that creating one-off actors from an all-for-one supervisor entails
 that failures escalated by the temporary actor will affect all the permanent
 ones. If this is not desired, install an intermediate supervisor; this can very
 easily be done by declaring a router of size 1 for the worker, see
-@ref:[Routing](../scala/routing.md) or @ref:[Routing](../java/routing.md).
+@ref:[Routing](../routing.md).

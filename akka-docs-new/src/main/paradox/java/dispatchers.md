@@ -14,7 +14,6 @@ dispatchers in this ActorSystem. If no ExecutionContext is given, it will fallba
 `akka.actor.default-dispatcher.default-executor.fallback`. By default this is a "fork-join-executor", which
 gives excellent performance in most cases.
 
-<a id="dispatcher-lookup-java"></a>
 ## Looking up a Dispatcher
 
 Dispatchers implement the `ExecutionContext` interface and can thus be used to run `Future` invocations etc.

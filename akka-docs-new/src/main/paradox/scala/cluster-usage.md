@@ -714,12 +714,12 @@ and to the registered subscribers on the system event bus with the help of `clus
 
 ## How to Test
 
-@ref:[Multi Node Testing](../dev/multi-node-testing.md) is useful for testing cluster applications.
+@ref:[Multi Node Testing](dev/multi-node-testing.md) is useful for testing cluster applications.
 
-Set up your project according to the instructions in @ref:[Multi Node Testing](../dev/multi-node-testing.md) and @ref:[Multi JVM Testing](../dev/multi-jvm-testing.md), i.e.
+Set up your project according to the instructions in @ref:[Multi Node Testing](dev/multi-node-testing.md) and @ref:[Multi JVM Testing](dev/multi-jvm-testing.md), i.e.
 add the `sbt-multi-jvm` plugin and the dependency to `akka-multi-node-testkit`.
 
-First, as described in @ref:[Multi Node Testing](../dev/multi-node-testing.md), we need some scaffolding to configure the `MultiNodeSpec`.
+First, as described in @ref:[Multi Node Testing](dev/multi-node-testing.md), we need some scaffolding to configure the `MultiNodeSpec`.
 Define the participating roles and their [cluster_configuration_scala](#cluster-configuration-scala) in an object extending `MultiNodeConfig`:
 
 @@snip [StatsSampleSpec.scala](../../../../../akka-cluster-metrics/src/multi-jvm/scala/akka/cluster/metrics/sample/StatsSampleSpec.scala) { #MultiNodeConfig }
@@ -836,7 +836,7 @@ Make sure you understand the security implications of enabling remote monitoring
 ## Configuration
 
 There are several configuration properties for the cluster. We refer to the
-@ref:[reference configuration](../general/configuration.md#config-akka-cluster) for more information.
+@ref:[reference configuration](general/configuration.md#config-akka-cluster) for more information.
 
 ### Cluster Info Logging
 

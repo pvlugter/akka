@@ -3,7 +3,7 @@
 
 @@@ note
 
-This page describes the @ref:[may change](../common/may-change.md) remoting subsystem, codenamed *Artery* that will eventually
+This page describes the @ref:[may change](common/may-change.md) remoting subsystem, codenamed *Artery* that will eventually
 replace the old remoting implementation. For the current stable remoting system please refer to @ref:[Remoting](remoting.md).
 
 @@@
@@ -167,7 +167,7 @@ and automatically reply to with a `ActorIdentity` message containing the
 the `ActorSelection`, which returns a `Future` of the matching
 `ActorRef`.
 
-For more details on how actor addresses and paths are formed and used, please refer to @ref:[Actor References, Paths and Addresses](../general/addressing.md).
+For more details on how actor addresses and paths are formed and used, please refer to @ref:[Actor References, Paths and Addresses](general/addressing.md).
 
 @@@ note
 
@@ -351,7 +351,7 @@ marking them `PossiblyHarmful` so that a client cannot forge them.
 
 Akka remoting is using Aeron as underlying message transport. Aeron is using UDP and adds
 among other things reliable delivery and session semantics, very similar to TCP. This means that
-the order of the messages are preserved, which is needed for the @ref:[Actor message ordering guarantees](../general/message-delivery-reliability.md#message-ordering).
+the order of the messages are preserved, which is needed for the @ref:[Actor message ordering guarantees](general/message-delivery-reliability.md#message-ordering).
 Under normal circumstances all messages will be delivered but there are cases when messages
 may not be delivered to the destination:
 
@@ -360,7 +360,7 @@ may not be delivered to the destination:
  * if serialization or deserialization of a message fails (only that message will be dropped) 
  * if an unexpected exception occurs in the remoting infrastructure
 
-In short, Actor message delivery is “at-most-once” as described in @ref:[Message Delivery Reliability](../general/message-delivery-reliability.md)
+In short, Actor message delivery is “at-most-once” as described in @ref:[Message Delivery Reliability](general/message-delivery-reliability.md)
 
 Some messages in Akka are called system messages and those cannot be dropped because that would result
 in an inconsistent state between the systems. Such messages are used for essentially two features; remote death
@@ -638,7 +638,7 @@ You can pass [Aeron properties](https://github.com/real-logic/Aeron/wiki/Configu
 command line *-D* system properties:
 
 ```
--Daeron.dir=/dev/shm/aeron
+-Daeron.didev/shm/aeron
 ```
 
 You can also define Aeron properties in a file::
@@ -666,7 +666,7 @@ aeron.threading.mode=SHARED_NETWORK
 
 # use same director in akka.remote.artery.advanced.aeron-dir config
 # of the Akka application
-aeron.dir=/dev/shm/aeron
+aeron.didev/shm/aeron
 ```
 
 Read more about the media driver in the [Aeron documentation](https://github.com/real-logic/Aeron/wiki/Media-Driver-Operation).
@@ -677,7 +677,7 @@ configuration properties:
 ```
 akka.remote.artery.advanced {
   embedded-media-driver = off
-  aeron-dir = /dev/shm/aeron
+  aeron-dir dev/shm/aeron
 }
 ```
 
@@ -745,7 +745,7 @@ crashes unexpectedly.
 for production systems.
 
 The location of the file can be controlled via the *akka.remote.artery.advanced.flight-recoder.destination* setting (see
-@ref:[akka-remote (artery)](../general/configuration.md#config-akka-remote-artery) for details). By default, a file with the *.afr* extension is produced in the temporary
+@ref:[akka-remote (artery)](general/configuration.md#config-akka-remote-artery) for details). By default, a file with the *.afr* extension is produced in the temporary
 directory of the operating system. In cases where the flight recorder casuses issues, it can be disabled by adding the
 setting *akka.remote.artery.advanced.flight-recorder.enabled=off*, although this is not recommended.
 
@@ -753,7 +753,7 @@ setting *akka.remote.artery.advanced.flight-recorder.enabled=off*, although this
 ## Remote Configuration
 
 There are lots of configuration properties that are related to remoting in Akka. We refer to the
-@ref:[reference configuration](../general/configuration.md#config-akka-remote-artery) for more information.
+@ref:[reference configuration](general/configuration.md#config-akka-remote-artery) for more information.
 
 @@@ note
 
