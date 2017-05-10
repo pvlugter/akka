@@ -1,4 +1,3 @@
-<a id="java-api"></a>
 # Java Documentation
 
 @@toc { depth=2 }

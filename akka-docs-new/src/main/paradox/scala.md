@@ -1,4 +1,3 @@
-<a id="scala-api"></a>
 # Scala Documentation
 
 @@toc { depth=2 }

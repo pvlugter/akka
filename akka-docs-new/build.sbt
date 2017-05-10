@@ -13,10 +13,7 @@ unmanagedSourceDirectories in ScalariformKeys.format in Test <<= unmanagedSource
 enablePlugins(ScaladocNoVerificationOfDiagrams)
 disablePlugins(MimaPlugin)
 enablePlugins(ParadoxPlugin)
-// use local Akka theme
-paradoxTheme := None
-// sidebar navigation settings
+paradoxTheme := Some("com.lightbend.akka" % "paradox-theme-akka" % "0.1.0-SNAPSHOT")
 paradoxNavigationDepth := 1
-paradoxNavigationExpandActive := true
-paradoxNavigationExpandDepth := 1
+paradoxNavigationExpandDepth := Some(1)
 paradoxNavigationIncludeHeaders := true
